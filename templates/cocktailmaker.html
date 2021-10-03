@@ -1,0 +1,52 @@
+{% extends "layout.html"%}
+{% block title %}
+    Cocktail Maker
+{% endblock %}
+
+{% block main %}
+    <body>
+        <form action="/cocktailmaker" method="post">
+        <div class="form-group">
+            <p class="main-text">Select your ingredient to use</p>
+            <select name="ingredient" class="form-control" style="background-color: gold">
+                <option disable selected values="">Select an ingredient</option>
+                {% for drink in inventory %}
+                    <option value = "{{drink['drink']}}">{{ drink['drink'] }}</option>
+                {% endfor %}
+            </select>
+            <span>&nbsp&nbsp</span>
+        </div>
+            <button class="btn btn-primary" style="background-color: lightseagreen" type="submit" name="submit" value="check">Check possible drinks!</button>
+        </form>
+    </body>
+
+    <body>
+        <div class="section">
+        <br>
+        <table>
+            {% if ingredient %}
+            <thead>
+                <tr>
+                    <th>Possible Cocktails!</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cocktail in cocktails %}
+                    <tr>
+                        <td id="cocktailselected"><a href="{{url_for('recipe', type=cocktail['name'])}}">{{ cocktail['name'] }}</a></td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+            {% endif %}
+        </table>
+        </div>
+
+        <div class="section">
+
+        </div>
+
+    </body>
+
+
+{% endblock %}

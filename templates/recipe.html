@@ -1,0 +1,26 @@
+{% extends "layout.html"%}
+{% block title %}
+    Recipe
+{% endblock %}
+
+{% block main %}
+    <body>
+        <div class="main-text">
+            <p class="main-text" style="font-size: 18px">{{ name }}</p>
+        <ul>
+            {% for line in recipe %}
+            <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        <br>
+            <p class="main-text" style="font-size: 16px">Cocktail Story<p>
+            <p class="ps">{{ story }}<p>
+        </div>
+        <br>
+        <form action="/cocktailmaker">
+            <input class="form-control" type="submit" value="return">
+        </form>
+    </body>
+
+{% endblock %}

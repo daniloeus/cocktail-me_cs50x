@@ -1,0 +1,65 @@
+{% extends "layout.html"%}
+{% block title %}
+    Homepage - Inventory
+{% endblock %}
+
+{% block main %}
+    <body>
+        <form action="/" method="post">
+        <div class="main-text">
+            <p class="main-text">Add ingredient to your inventory</p>
+            <select name="drink_add" class="form-control" style="background-color: AliceBlue">
+                <option disable selected values="">Select an ingredient</option>
+                {% for drink in drinks %}
+                    <option value = "{{drink['drink']}}">{{ drink['drink'] }}</option>
+                {% endfor %}
+            </select>
+            <span>&nbsp&nbsp</span>
+            <button class="form-control" style="background-color: lightskyblue" type="submit" name="submit" value="add">Add</button>
+        </div>
+        </form>
+    </body>
+
+    <body>
+        <form action="/" method="post">
+        <div class="main-text">
+            <br>
+            <p class="main-text">Remove ingredient from your inventory</p>
+
+        <select name="drink_remove" class="form-control" style="background-color: LavenderBlush">
+                <option disable seleted values="">Select an ingredient</option>
+                {% for drink in stock %}
+                    <option value = "{{drink['drink']}}">{{ drink['drink'] }}</option>
+                {% endfor %}
+        </select>
+        <span>&nbsp&nbsp</span>
+        <button class="form-control" style="background-color: Pink" type="submit" name="submit" value="remove">Remove</button>
+        </div>
+        </form>
+    </body>
+
+    <body>
+        <div class="section">
+        <br><br>
+        <table>
+            {% if stock %}
+            <thead>
+                <tr>
+                    <th>Ingredients in your stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for drink in inventory %}
+                    <tr>
+                        <td>{{ drink['drink'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            {% else %}
+            <p class="main-text" style="font-size: 16px; color: steelblue">Your stock is empty &#x1f632; please add ingredients<p>
+            {% endif %}
+        </table>
+        </div>
+    </body>
+
+{% endblock %}

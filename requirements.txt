@@ -1,0 +1,6 @@
+cs50
+Flask
+Flask-Session
+requests
+string
+SQL database with users, drinks, inventory of users and cocktails

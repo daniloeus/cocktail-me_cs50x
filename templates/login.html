@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+
+    <form action="/login" method="post" class="form-group login">
+        <p>Members access</p>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+            <button class="btn btn-primary" type="submit" name="submit" value="submit_login">Login</button>
+    </form>
+    <br><br>
+        <form action="/login" method="post" class="form-group register">
+        <span style="font-size: 10px">Not a member?...</span><p>Register now!</p>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username_register" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password_register" placeholder="Insert password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation_register" placeholder="Repeat password" type="password">
+        </div>
+            <button class="btn btn-primary" type="submit" name="submit" value="submit_register">Register</button>
+    </form>
+
+
+{% endblock %}
